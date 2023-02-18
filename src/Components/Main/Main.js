@@ -1,6 +1,8 @@
+
 import Card from "../Card/Card"
 import PokeInfo from "../PokeInfo/PokeInfo"
-import { ContainerMain , LeftContent , RightContent } from "./styled"
+import {Button, ContainerMain , LeftContent , RightContent } from "./styled"
+
 
 
 export default function Main (){
@@ -14,13 +16,32 @@ export default function Main (){
                 <Card/>
                 <Card/>
                 <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
+
+               <div className="buton">
+      
+               <Button>Next</Button>
+               </div>
+
+
+
+
+
+
+
+            
 
             </LeftContent>
 
-            <RightContent>
+            {/* <RightContent>
                 <PokeInfo/>
 
-            </RightContent>
+            </RightContent> */}
 
         </ContainerMain>
         </>

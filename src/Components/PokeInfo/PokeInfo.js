@@ -1,33 +1,33 @@
 
-import {ContainerInfo,Ability, Group, BaseStart} from "./styled"
+import {ContainerInfo,Ability, Group, BaseStart, Texto1, Texto2, Texto3} from "./styled"
 
 export default function PokeInfo(){
     return(
         <>
         <ContainerInfo>
-            <h1>Chamander</h1>
+            <Texto1>Chamander</Texto1>
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg" alt="poke"/>
 
             <Ability>
 
                 <Group>
-                    <h2>blaze</h2>
+                    <Texto2>blaze</Texto2>
 
                 </Group>
 
                 <Group>
-                    <h2>solar-power</h2>
+                    <Texto2>solar-power</Texto2>
 
                 </Group>
 
             </Ability>
 
             <BaseStart>
-            <h3>hp:30</h3>
-            <h3>Atack:52</h3>
-            <h3>defense:43</h3>
-            <h3>special-atack:43</h3>
-            <h3>speed:43</h3>
+            <Texto3>hp:30</Texto3>
+            <Texto3>Atack:52</Texto3>
+            <Texto3>defense:43</Texto3>
+            <Texto3>special-atack:43</Texto3>
+            <Texto3>speed:43</Texto3>
             
             </BaseStart>
 
