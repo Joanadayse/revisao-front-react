@@ -16,16 +16,7 @@ position: static;
 }
 
 .buton{
-/* display: flex;
-outline: none;
-border: none;
-width: 80%;
-padding: 0.3rem ;
-margin: 0 auto;
-font-size: 17px;
-font-weight: bold;
-color: var( --crean);
-background-color: red; */
+
 
 
 width: 200px;
@@ -51,10 +42,7 @@ color: white;
 `
 
 export const LeftContent= styled.div`
-/* display: grid; */
-/* grid-template-columns: repeat(auto-fit, minmax(200px,0.5fr)); */
-/* gap: 10%; */
-/* flex-basis: 50%; */
+
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 
