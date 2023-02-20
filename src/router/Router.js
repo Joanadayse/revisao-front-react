@@ -7,7 +7,7 @@ return(
 <BrowserRouter>
  <Routes>
     <Route index element={<Main/>}/>
-    <Route path="detalhes" element={<PokeInfo/>}/>
+    <Route path="/detalhes" element={<PokeInfo/>}/>
  </Routes>
 
 

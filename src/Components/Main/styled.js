@@ -56,19 +56,7 @@ grid-template-columns: 1fr 1fr 1fr;
 
 `
 
-export const RightContent= styled.div`
-/* flex-basis: 50%;
-width: 50%;
-text-align: center;
-color: var(--hot-pink);
-position: fixed;
-top: 100px;
-right: 10px; */
 
-
-
-
-`
 
 export const Button = styled.button`
 display: flex;

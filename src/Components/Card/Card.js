@@ -10,8 +10,15 @@ import {
   Badge,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Card() {
+  const navigate= useNavigate()
+ const irParaDetalhes=()=>{
+  navigate("/detalhes")
+ }
+
+
   return (
     <Center py={6}>
       <Box
@@ -66,6 +73,7 @@ export default function Card() {
             _focus={{
               bg: "#EF7C8E",
             }}
+            onClick={irParaDetalhes}
           >
             detalhes
           </Button>
