@@ -1,16 +1,28 @@
 
+import useRequest from "../../hooks/useRequest"
 import {ContainerInfo,Ability, Group, BaseStart, Texto1, Texto2, Texto3, Imagem} from "./styled"
 
-export default function PokeInfo(){
+export default function PokeInfo({data}){
+    // const [pokeDex]= useRequest()
+    console.log(data)
+   
     return(
         <>
-        <ContainerInfo>
-            <Texto1>Chamander</Texto1>
-            <Imagem src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/4.svg" alt="poke"/>
+        {
+            (!data)?"":(
+                <>
 
-            <Ability>
+<ContainerInfo>
+            <Texto1>{data.name}</Texto1>
+            <Imagem src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt="poke"/>
+       
+    
 
-                <Group>
+              {
+                data.abilities.map(poke=>{
+                    return( 
+                        <>
+                          <Group>
                     <Texto2>blaze</Texto2>
                     
 
@@ -18,21 +30,41 @@ export default function PokeInfo(){
 
                 <Group>
                
-                <Texto2>solar-power</Texto2>
+                <Texto2>{poke.ability.name}</Texto2>
                 </Group>
+                        
+                        
+                        </>
+                    )
+                })
+              }
 
-            </Ability>
+         
 
             <BaseStart>
-            <Texto3>Hp: 30</Texto3>
-            <Texto3>Atack: 52</Texto3>
-            <Texto3>Defense: 43</Texto3>
-            <Texto3>Special-atack: 43</Texto3>
-            <Texto3>Speed: 43</Texto3>
+           {
+            data.stats.map(poke=>{
+return(
+    <>
+     <Texto1>{poke.stat.name}:{poke.base_stat}</Texto1>
             
+    
+    
+    </>
+)
+
+            })
+           }
             </BaseStart>
 
         </ContainerInfo>
+                
+                
+                
+                </>
+            )
+        }
+      
         
         </>
     )

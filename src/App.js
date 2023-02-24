@@ -4,6 +4,7 @@ import GlobalStyle from "./global/GlobalStyle";
 import Router from "./router/Router";
 
 function App() {
+  
   return (
     <>
       <ChakraProvider>

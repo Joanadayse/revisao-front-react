@@ -10,10 +10,10 @@ import {
   Badge,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { navigateToDetalhes } from "../../router/coordinator";
 
-export default function Card({pokemon}) {
-
+export default function Card({pokemon, infoPokemon}) {
 
   const navigate = useNavigate();
   const irParaDetalhes = () => {
@@ -80,10 +80,12 @@ export default function Card({pokemon}) {
                   _focus={{
                     bg: "#EF7C8E",
                   }}
-                  onClick={irParaDetalhes}
+                  onClick={()=> infoPokemon(item)}  
+                  
                 >
                   detalhes
                 </Button>
+         
               </Stack>
             </Box>
           </Center>
