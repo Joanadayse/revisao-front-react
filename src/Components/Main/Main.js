@@ -1,16 +1,17 @@
 import Card from "../Card/Card";
 import PokeInfo from "../PokeInfo/PokeInfo";
-import { Button, ContainerMain, LeftContent, RightContent } from "./styled";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { Button, ContainerMain, LeftContent } from "./styled";
+import { useState } from "react";
 import useRequest from "../../hooks/useRequest";
 
 export default function Main() {
-  const [pokeData, setPokeDex, pokeDex] = useRequest();
+  const [pokeData] = useRequest();
+  const [pokeDex, setPokeDex] = useState();
 
   return (
     <>
       <ContainerMain>
+      <PokeInfo data={pokeDex} />
         <LeftContent>
           <Card pokemon={pokeData} infoPokemon={(poke) => setPokeDex(poke)} />
 
@@ -19,7 +20,7 @@ export default function Main() {
           </div>
         </LeftContent>
 
-        <PokeInfo data={pokeDex} />
+     
       </ContainerMain>
     </>
   );

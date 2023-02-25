@@ -1,71 +1,75 @@
+import {
+  Badge,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 
-import useRequest from "../../hooks/useRequest"
-import {ContainerInfo,Ability, Group, BaseStart, Texto1, Texto2, Texto3, Imagem} from "./styled"
-
-export default function PokeInfo({data}){
-    // const [pokeDex]= useRequest()
-    console.log(data)
-   
-    return(
-        <>
-        {
-            (!data)?"":(
-                <>
-
-<ContainerInfo>
-            <Texto1>{data.name}</Texto1>
-            <Imagem src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`} alt="poke"/>
-       
-    
-
-              {
-                data.abilities.map(poke=>{
-                    return( 
-                        <>
-                          <Group>
-                    <Texto2>blaze</Texto2>
-                    
-
-                </Group>
-
-                <Group>
-               
-                <Texto2>{poke.ability.name}</Texto2>
-                </Group>
-                        
-                        
-                        </>
-                    )
-                })
-              }
-
-         
-
-            <BaseStart>
-           {
-            data.stats.map(poke=>{
-return(
+export default function PokeInfo({ data }) {
+  return (
     <>
-     <Texto1>{poke.stat.name}:{poke.base_stat}</Texto1>
-            
-    
-    
+      {!data ? (
+        ""
+      ) : (
+        <Center  >
+          <Stack
+            borderWidth="1px"
+            borderRadius="lg"
+            w={{ sm: "100%", md: "540px" }}
+            height={{ sm: "476px", md: "20rem" }}
+            direction={{ base: "column", md: "row" }}
+            boxShadow={"2xl"}
+            padding={4}
+ 
+          >
+            <Flex flex={1} bg="blue.200">
+              <Image
+                objectFit="cover"
+                boxSize="100%"
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg`}
+              />
+            </Flex>
+            <Stack
+              flex={1}
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              p={1}
+              pt={2}
+            >
+              <Heading fontSize={"2xl"} fontFamily={"body"}>
+                {data.name}
+              </Heading>
+              {data.abilities.map((poke) => {
+                return (
+                  <Stack
+                    align={"center"}
+                    justify={"center"}
+                    direction={"row"}
+                    mt={6}
+                  >
+                    <Badge px={2} py={1} fontWeight={"400"}>
+                      {poke.ability.name}
+                    </Badge>
+                  </Stack>
+                );
+              })}
+              {data.stats.map((poke) => {
+                return (
+                  <Text textAlign={"center"} px={3}>
+                    {poke.stat.name}:{poke.base_stat}
+                  </Text>
+                );
+              })}
+            </Stack>
+          </Stack>
+        </Center>
+      )}
     </>
-)
-
-            })
-           }
-            </BaseStart>
-
-        </ContainerInfo>
-                
-                
-                
-                </>
-            )
-        }
-      
-        
-        </>
-    )
+  );
 }

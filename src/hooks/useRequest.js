@@ -6,21 +6,21 @@ export default function useRequest(){
 
 
     const [pokeData,setPokeData]=useState([]);
-    const [loading,setLoading]=useState(true);
+    // const [loading,setLoading]=useState(true);
     const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
     const [nextUrl,setNextUrl]=useState();
     const [prevUrl,setPrevUrl]=useState();
-    const [pokeDex,setPokeDex]=useState();
+ 
 
    
 
     const pokeFun=async()=>{
-        setLoading(true)
+        // setLoading(true)
         const res=await axios.get(url);
         setNextUrl(res.data.next);
         setPrevUrl(res.data.previous);
         getPokemon(res.data.results)
-        setLoading(false)
+        // setLoading(false)
     }
     const getPokemon=async(res)=>{
        res.map(async(item)=>{
@@ -40,7 +40,7 @@ export default function useRequest(){
 
 
 
-    return [pokeData, setPokeDex, pokeDex ]
+    return [pokeData]
 
    
 }
