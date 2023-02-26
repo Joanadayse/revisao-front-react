@@ -1,46 +1,46 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function useRequest(){
+export default function useRequest() {
+  const [pokeData, setPokeData] = useState([]);
 
+  const [url, setUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=21&offset=0"
+  );
 
+  const [nome, setNome] = useState("");
 
-    const [pokeData,setPokeData]=useState([]);
-    // const [loading,setLoading]=useState(true);
-    const [url,setUrl]=useState("https://pokeapi.co/api/v2/pokemon/")
-    const [nextUrl,setNextUrl]=useState();
-    const [prevUrl,setPrevUrl]=useState();
- 
+  const pokeFun = async () => {
+    const res = await axios.get(url);
+    getPokemon(res.data.results);
+  };
+  const getPokemon = async (res) => {
+    res.map(async (item) => {
+      const result = await axios.get(item.url);
+      setPokeData((state) => {
+        state = [...state, result.data];
+        state.sort((a, b) => (a.id > b.id ? 1 : -1));
+        return state;
+      });
+    });
+  };
+  useEffect(() => {
+    pokeFun();
+  }, [url]);
 
-   
-
-    const pokeFun=async()=>{
-        // setLoading(true)
-        const res=await axios.get(url);
-        setNextUrl(res.data.next);
-        setPrevUrl(res.data.previous);
-        getPokemon(res.data.results)
-        // setLoading(false)
+  const pokemonFilter = (name) => {
+    const filteredPokemons = [];
+    if (name === "") {
+      pokeFun();
     }
-    const getPokemon=async(res)=>{
-       res.map(async(item)=>{
-          const result=await axios.get(item.url)
-          setPokeData(state=>{
-              state=[...state,result.data]
-              state.sort((a,b)=>a.id>b.id?1:-1)
-              return state;
-          })
-       })   
+    for (var i in pokeData) {
+      if (pokeData[i].data.name.includes(name)) {
+        filteredPokemons.push(pokeData[i]);
+      }
     }
-    useEffect(()=>{
-        pokeFun();
-    },[url])
 
+    setPokeData(filteredPokemons);
+  };
 
-
-
-
-    return [pokeData]
-
-   
+  return [pokeData, pokemonFilter, nome, setNome];
 }

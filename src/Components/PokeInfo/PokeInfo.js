@@ -42,7 +42,7 @@ export default function PokeInfo({ data }) {
               p={1}
               pt={2}
             >
-              <Heading fontSize={"2xl"} fontFamily={"body"}>
+              <Heading fontSize={"2xl"} fontFamily={'Kanit'}>
                 {data.name}
               </Heading>
               {data.abilities.map((poke) => {
@@ -52,8 +52,9 @@ export default function PokeInfo({ data }) {
                     justify={"center"}
                     direction={"row"}
                     mt={6}
+                    fontFamily={'Kanit'}
                   >
-                    <Badge px={2} py={1} fontWeight={"400"}>
+                    <Badge px={2} py={1} fontWeight={"400"} fontFamily={'Kanit'}>
                       {poke.ability.name}
                     </Badge>
                   </Stack>
@@ -61,7 +62,7 @@ export default function PokeInfo({ data }) {
               })}
               {data.stats.map((poke) => {
                 return (
-                  <Text textAlign={"center"} px={3}>
+                  <Text textAlign={"center"} px={3} fontFamily={'Kanit'}>
                     {poke.stat.name}:{poke.base_stat}
                   </Text>
                 );
