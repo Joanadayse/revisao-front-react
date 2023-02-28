@@ -10,7 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default function PokeInfo({ data }) {
+export default function PokeInfo({ data , infoPokemon }) {
   return (
     <>
       {!data ? (
@@ -71,6 +71,9 @@ export default function PokeInfo({ data }) {
           </Stack>
         </Center>
       )}
+
+       <button  onClick={() => infoPokemon()}>voltar</button>
+     
     </>
   );
 }

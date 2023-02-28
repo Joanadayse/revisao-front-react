@@ -5,7 +5,7 @@ export default function useRequest() {
   const [pokeData, setPokeData] = useState([]);
 
   const [url, setUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=21&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=24&offset=0"
   );
 
   const [nome, setNome] = useState("");
